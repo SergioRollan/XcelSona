@@ -1,2 +1,3 @@
 # XcelSona
-This project mean to be a windows 10 desktop app that help create cool linear and polynomic line drawings easily
+
+Documentation is only in Spanish. All the necessary files are included in the folder. Visual Studio is needed. Please contact me to report any issues.
