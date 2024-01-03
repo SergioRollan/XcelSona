@@ -1,0 +1,64 @@
+﻿<Window x:Class="XcelSona.TypeGraphWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:XcelSona"
+        mc:Ignorable="d"
+        Title="XcelSona | Cambiar tipo de gráfica" x:Name="typeGrphWin" KeyDown="lineasimg_KeyDown" Height="540" Width="960">
+    <Grid Background="LightGray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="2.5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="1" x:Name="aceptarImg" Margin="15" Source="/gadgets/aceptarno.png" MouseLeftButtonDown="aceptarImg_MouseLeftButtonDown" MouseEnter="aceptarImg_MouseEnter" MouseLeave="aceptarImg_MouseLeave"/>
+            <Image x:Name="aceptarImgNo" Source="/gadgets/aceptarno.png" Visibility="Collapsed"/>
+            <Image x:Name="aceptarImgSi" Source="/gadgets/aceptarsi.png" Visibility="Collapsed"/>
+            <Image Grid.Column="2" x:Name="cancelarImg" Margin="15" Source="/gadgets/cancelarno.png" MouseLeftButtonDown="cancelarImg_MouseLeftButtonDown" MouseEnter="cancelarImg_MouseEnter" MouseLeave="cancelarImg_MouseLeave"/>
+            <Image x:Name="cancelarImgNo" Source="/gadgets/cancelarno.png" Visibility="Collapsed"/>
+            <Image x:Name="cancelarImgSi" Source="/gadgets/cancelarsi.png" Visibility="Collapsed"/>
+        </Grid>
+        <Image Grid.Row="0" Grid.Column="1" x:Name="finalImg" Margin="100,50"/>
+        <Image Source="/gadgets/graflineasdemo.png" Visibility="Collapsed" x:Name="graf1"/>
+        <Image Source="/gadgets/lineardemo.png" Visibility="Collapsed" x:Name="graf2"/>
+        <Image Source="/gadgets/mixdemo.png" Visibility="Collapsed" x:Name="graf3"/>
+        <Image Source="/gadgets/barrasdemo.png" Visibility="Collapsed" x:Name="graf4"/>
+        <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <Image x:Name="lineasImg" Grid.Row="0" Source="/gadgets/polilineano.png" ToolTip="Une todos los puntos por orden en el que hayan sido colocados en la ventana de creación."
+                   MouseLeftButtonDown="lineasimg_MouseLeftButtonDown" MouseEnter="lineasimg_MouseEnter" MouseLeave="lineasimg_MouseLeave"/>
+            <Image x:Name="lineasImgSi" Source="/gadgets/polilineasi.png" Visibility="Collapsed"/>
+            <Image x:Name="lineasImgNo" Source="/gadgets/polilineano.png" Visibility="Collapsed"/>
+            <Image x:Name="verticalesImg" Grid.Row="1" Source="/gadgets/barrasfno.png" ToolTip="Une todos los puntos con el eje de abscisas de representación"
+                   MouseLeftButtonDown="verticalesimg_MouseLeftButtonDown" MouseEnter="verticalesimg_MouseEnter" MouseLeave="verticalesimg_MouseLeave"/>
+            <Image x:Name="verticalesImgSi" Source="/gadgets/barrasfsi.png" Visibility="Collapsed"/>
+            <Image x:Name="verticalesImgNo" Source="/gadgets/barrasfno.png" Visibility="Collapsed"/>
+            <Image x:Name="mixImg" Grid.Row="2" Source="/gadgets/mezclano.png" ToolTip="Junta las cualidades de los dos tipo de gráfico superiores."
+                   MouseLeftButtonDown="miximg_MouseLeftButtonDown" MouseEnter="miximg_MouseEnter" MouseLeave="miximg_MouseLeave"/>
+            <Image x:Name="mixImgSi" Source="/gadgets/mezclasi.png" Visibility="Collapsed"/>
+            <Image x:Name="mixImgNo" Source="/gadgets/mezclano.png" Visibility="Collapsed"/>
+            <Image x:Name="barrasImg" Grid.Row="3" Source="/gadgets/barrasgno.png" ToolTip="Forma rectángulos cuyos vértices superiores derechos son los puntos de la colección, y los izquierdos son la corrdenada vertical del punto y la horizontal del punto anterior."
+                   MouseLeftButtonDown="barrasimg_MouseLeftButtonDown" MouseEnter="barrasimg_MouseEnter" MouseLeave="barrasimg_MouseLeave"/>
+            <Image x:Name="barrasImgSi" Source="/gadgets/barrasgsi.png" Visibility="Collapsed"/>
+            <Image x:Name="barrasImgNo" Source="/gadgets/barrasgno.png" Visibility="Collapsed"/>
+
+        </Grid>
+        <Image Grid.Column="1"/>
+    </Grid>
+</Window>

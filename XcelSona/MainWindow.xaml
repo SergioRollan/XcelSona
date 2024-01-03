@@ -1,0 +1,106 @@
+﻿<Window x:Class="XcelSona.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:XcelSona"
+        mc:Ignorable="d"
+        Title="XcelSona | Ventana principal" x:Name="mainWin" KeyDown="mainWin_KeyDown" WindowStartupLocation="CenterScreen" Height="1080" Width="1920" ResizeMode="CanMinimize" WindowState="Maximized" Icon="/gadgets/logoXS.png">
+
+    <!--<Window.Background>
+        <ImageBrush ImageSource="/gadgets/fondo.png"/>
+
+    </Window.Background> -->
+    <Grid Background="LightGray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Image Source="/gadgets/logoXS.png" Grid.ColumnSpan="2"/>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Image Margin="5" x:Name="crearImg" Grid.Row="0"  Source="/gadgets/crearno.png" MouseLeftButtonDown="crearImg_MouseLeftButtonDown" MouseEnter="crearImg_MouseEnter" MouseLeave="crearImg_MouseLeave"/>
+            <Image x:Name="crearImgSi" Source="/gadgets/crearsi.png" Visibility="Collapsed"/>
+            <Image x:Name="crearImgNo" Source="/gadgets/crearno.png" Visibility="Collapsed"/>
+            <Image Margin="10" x:Name="importarImg" Grid.Row="1" Source="/gadgets/importarno.png" MouseLeftButtonDown="importarImg_MouseLeftButtonDown" MouseEnter="importarImg_MouseEnter" MouseLeave="importarImg_MouseLeave"/>
+            <Image x:Name="importarImgSi" Source="/gadgets/importarsi.png" Visibility="Collapsed"/>
+            <Image x:Name="importarImgNo" Source="/gadgets/importarno.png" Visibility="Collapsed"/>
+            <Image Margin="5" x:Name="exportarImg" Grid.Row="2" Source="/gadgets/exportarno.png" MouseLeftButtonDown="exportarImg_MouseLeftButtonDown" MouseEnter="exportarImg_MouseEnter" MouseLeave="exportarImg_MouseLeave"/>
+            <Image x:Name="exportarImgNo" Source="/gadgets/exportarno.png" Visibility="Collapsed"/>
+            <Image x:Name="exportarImgSi" Source="/gadgets/exportarsi.png" Visibility="Collapsed"/>
+            <Image Margin="15" x:Name="vaciarImg" Grid.Row="3" Source="/gadgets/vaciarno.png" MouseLeftButtonDown="vaciarImg_MouseLeftButtonDown" MouseEnter="vaciarImg_MouseEnter" MouseLeave="vaciarImg_MouseLeave"/>
+            <Image x:Name="vaciarImgNo"  Source="/gadgets/vaciarno.png" Visibility="Collapsed"/>
+            <Image x:Name="vaciarImgSi" Source="/gadgets/vaciarsi.png" Visibility="Collapsed"/>
+            <Image Margin="10" x:Name="graficaImg" Grid.Row="4" Source="/gadgets/graficano.png" MouseLeftButtonDown="graficaImg_MouseLeftButtonDown" MouseEnter="graficaImg_MouseEnter" MouseLeave="graficaImg_MouseLeave"/>
+            <Image x:Name="graficaImgNo" Source="/gadgets/graficano.png" Visibility="Collapsed"/>
+            <Image x:Name="graficaImgSi" Source="/gadgets/graficasi.png" Visibility="Collapsed"/>
+            <Image Margin="10" x:Name="terminarImg" Grid.Row="5" Source="/gadgets/terminarno.png" MouseLeftButtonDown="terminarImg_MouseLeftButtonDown" MouseEnter="terminarImg_MouseEnter" MouseLeave="terminarImg_MouseLeave"/>
+            <Image x:Name="terminarImgNo" Source="/gadgets/terminarno.png" Visibility="Collapsed"/>
+            <Image x:Name="terminarImgSi" Source="/gadgets/terminarsi.png" Visibility="Collapsed"/>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1" ShowGridLines="True" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="1"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="1"/>
+            </Grid.ColumnDefinitions>
+            <ToolBar Grid.Row="1" Grid.Column="1" Margin="20" Height="40">
+                <Button x:Name="lineClrBtn" Content="| COLOR DE LÍNEA |" FontSize="18" BorderBrush="Black" BorderThickness="2" FontFamily="/XcelSona;component/#Earwig Factory" Click="lineClrBtn_Click"/>
+                <Button x:Name="fillBckBtn" Content="| COLOR DE FONDO |" FontSize="18" BorderBrush="Black" BorderThickness="2" FontFamily="/XcelSona;component/#Earwig Factory" Click="fillClrBtn_Click"/>
+                <Separator/>
+                <Slider x:Name="thicknessSlider" Maximum="20" Minimum="0" Value="5" Width="100" VerticalAlignment="Center"/>
+                <Label Content="THICKNESS:" FontFamily="/XcelSona;component/#Earwig Factory" FontSize="18"/>
+                <Label x:Name="thicknessBind" FontFamily="/XcelSona;component/#Earwig Factory" Content="{Binding ElementName=thicknessSlider, Path=Value }" MinWidth="55" MaxWidth="55" FontSize="18"/>
+                <Separator/>
+                <ComboBox x:Name="tipoTrazo" Width="130" FontFamily="/XcelSona;component/#Earwig Factory" FontSize="16" SelectionChanged="tipoTrazo_SelectionChanged">
+                    <ComboBoxItem Content=" ELEGIR TIPO DE TRAZO" FontSize="22"  IsEnabled="False"/>
+                    <ComboBoxItem Content=" CONTINUO" FontSize="24" IsSelected="True"/>
+                    <ComboBoxItem Content=" DISCONTINUO 1" FontSize="24"/>
+                    <ComboBoxItem Content=" DISCONTINUO 2" FontSize="24"/>
+                    <ComboBoxItem Content=" DISCONTINUO 3" FontSize="24"/>
+                    <ComboBoxItem Content=" ESTILO EJE" FontSize="24"/>
+                </ComboBox>
+                <ComboBox x:Name="tipoRelleno" Width="130" FontFamily="/XcelSona;component/#Earwig Factory" FontSize="16" SelectionChanged="tipoRelleno_SelectionChanged">
+                    <ComboBoxItem Content=" ELEGIR TIPO DE PUNTA" FontSize="22" IsEnabled="False"/>
+                    <ComboBoxItem Content=" FLAT" FontSize="24" IsSelected="True"/>
+                    <ComboBoxItem Content=" TRIANGLE" FontSize="24"/>
+                    <ComboBoxItem Content=" SQUARE" FontSize="24"/>
+                    <ComboBoxItem Content=" ROUND" FontSize="24"/>
+                </ComboBox>
+                <ComboBox x:Name="tipoVertice" Width="130" FontFamily="/XcelSona;component/#Earwig Factory" FontSize="16" SelectionChanged="tipoVertice_SelectionChanged">
+                    <ComboBoxItem Content=" ELEGIR TIPO DE VERTICE" FontSize="22" IsEnabled="False"/>
+                    <ComboBoxItem Content=" BEVEL" FontSize="24" IsSelected="True"/>
+                    <ComboBoxItem Content=" MITER" FontSize="24"/>
+                    <ComboBoxItem Content=" ROUND" FontSize="24"/>
+                </ComboBox>
+                <ComboBox x:Name="tipoCentrado" Width="130" Background="Black" Foreground="white" FontFamily="/XcelSona;component/#Earwig Factory" FontSize="16" SelectionChanged="tipoCentrado_SelectionChanged">
+                    <ComboBoxItem Content=" ELEGIR CENTRADO" Background="White" FontSize="22" IsEnabled="False"/>
+                    <ComboBoxItem Content=" GRÁFICA" Background="Black" FontSize="24" IsSelected="True"/>
+                    <ComboBoxItem Content=" EJES, 1 CUAD" Background="Black" FontSize="24"/>
+                    <ComboBoxItem Content=" EJES, 4 CUADS" Background="Black" FontSize="24"/>
+                </ComboBox>
+                <Separator/>
+                <Button x:Name="btnAxis" Content="--|--" FontSize="18" BorderBrush="Black" Click="btnAxis_Click" BorderThickness="1.5"/>
+                <Button x:Name="btnDupl" Content="x2" Padding="5 0" FontFamily="/XcelSona;component/#Earwig Factory" BorderThickness="1.5" FontSize="23" BorderBrush="Black" Click="btnDupl_Click"/>
+            </ToolBar>
+            <Canvas x:Name="elGranCanvas" Grid.Row="2" Grid.Column="1" Margin="10" Background="#E30613" MouseLeftButtonDown="elGranCanvas_MouseLeftButtonDown" MouseUp="elGranCanvas_MouseUp" MouseMove="elGranCanvas_MouseMove" MouseLeave="elGranCanvas_MouseLeave"/>
+        </Grid>
+    </Grid>
+</Window>

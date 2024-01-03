@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5A379ACE-B5B1-4ECA-8803-FB246EBA7461}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>XcelSona</RootNamespace>
+    <AssemblyName>XcelSona</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logoXS.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="CambioColorEventArgs.cs" />
+    <Compile Include="NotMainWindows\ChooseColorWindow.xaml.cs">
+      <DependentUpon>ChooseColorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NotMainWindows\ConfirmationWindow.xaml.cs">
+      <DependentUpon>ConfirmationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ColeccionPuntos.cs" />
+    <Compile Include="Model\Polinomio.cs" />
+    <Compile Include="ViewModel.cs" />
+    <Compile Include="NotMainWindows\CreateLineWindow.xaml.cs">
+      <DependentUpon>CreateLineWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NotMainWindows\NumericTextBox.cs" />
+    <Compile Include="NotMainWindows\TypeGraphWindow.xaml.cs">
+      <DependentUpon>TypeGraphWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="NotMainWindows\ChooseColorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NotMainWindows\ConfirmationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NotMainWindows\CreateLineWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="NotMainWindows\TypeGraphWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Resource Include="earwigfactory.ttf" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="gadgets\configuno.png" />
+    <Resource Include="gadgets\configusi.png" />
+    <Resource Include="gadgets\crearno.png" />
+    <Resource Include="gadgets\crearsi.png" />
+    <Resource Include="gadgets\exportarno.png" />
+    <Resource Include="gadgets\exportarsi.png" />
+    <Resource Include="gadgets\graficano.png" />
+    <Resource Include="gadgets\graficasi.png" />
+    <Resource Include="gadgets\importarno.png" />
+    <Resource Include="gadgets\importarsi.png" />
+    <Resource Include="gadgets\vaciarno.png" />
+    <Resource Include="gadgets\vaciarsi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="gadgets\aceptarno.png" />
+    <Resource Include="gadgets\aceptarsi.png" />
+    <Resource Include="gadgets\aplicarno.png" />
+    <Resource Include="gadgets\aplicarsi.png" />
+    <Resource Include="gadgets\barrasfno.png" />
+    <Resource Include="gadgets\barrasfsi.png" />
+    <Resource Include="gadgets\barrasgno.png" />
+    <Resource Include="gadgets\barrasgsi.png" />
+    <Resource Include="gadgets\cancelarno.png" />
+    <Resource Include="gadgets\cancelarsi.png" />
+    <Resource Include="gadgets\mezclano.png" />
+    <Resource Include="gadgets\mezclasi.png" />
+    <Resource Include="gadgets\polilineano.png" />
+    <Resource Include="gadgets\polilineasi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="gadgets\barrasdemo.PNG" />
+    <Resource Include="gadgets\graflineasdemo.PNG" />
+    <Resource Include="gadgets\mixdemo.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="gadgets\logoXS2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="gadgets\logoXS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="gadgets\cerrarno.png" />
+    <Resource Include="gadgets\cerrarsi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logoXS.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="gadgets\lineardemo.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="gadgets\terminarno.png" />
+    <Resource Include="gadgets\terminarsi.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
